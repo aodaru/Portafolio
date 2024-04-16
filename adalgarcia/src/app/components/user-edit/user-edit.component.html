@@ -1,0 +1,120 @@
+<main class="container-fluid col-10 col-md-5 mt-5 py-4">
+  <section class="mt-3">
+    <h1>{{ page_title }}</h1>
+    <p *ngIf="(status != 'success')">Modifica tus datos personales de usuario</p>
+
+    <hr class="border border-danger border-3 opacity-75">
+      <!-- MENSAJES DE ALERTA  -->
+    <div class="alert alert-success col-md-8 mt-3" *ngIf="(status == 'success')" role=" alert">
+      Los datos se han guardado correctamente
+    </div>
+
+    <div class="alert alert-danger col-md-7 mt-3" *ngIf="(status == 'error')" role="alert">
+      Los datos no se han guardado correctamente
+      <p *ngIf="message != ''">{{ message }} <a [routerLink]="['/login']">Iniciar Sesion</a></p>
+    </div>
+    <!-- FIN MENSAJES DE ALERTA  -->
+
+
+    <!-- FORMULARION DE AJUESTES DE USUARIO -->
+    <form class="col-10 me-0 pe-0" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)"
+      enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="user.name" required
+          pattern="[a-zA-Z]+">
+        <div *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">Introduzca un formato de nombre correcto
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="surname" class="form-label">Apellido</label>
+        <input type="text" name="surname" class="form-control" #surname="ngModel" [(ngModel)]="user.surname" required
+          pattern="[a-zA-Z]+">
+        <div *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">Introduzca un formato de apellido
+          correcto
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo</label>
+        <input type="email" name="email" class="form-control" #email="ngModel" [(ngModel)]="user.email" required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <div *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">Introduzca un formato de email
+          correcto
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Biografia</label>
+        <quill-editor class="form-control border-0 p-0 bg-white" name="description" #description="ngModel" [(ngModel)]="user.description">
+          <div quill-editor-toolbar class="rounded-top">
+            <span class="ql-formats">
+              <button class="ql-bold" [title]="'Bold'"></button>
+              <button class="ql-italic"></button>
+              <button class="ql-underline"></button>
+              <button class="ql-strike"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-indent" value="-1"></button>
+              <button class="ql-indent" value="+1"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-blockquote"></button>
+              <button class="ql-code"></button>
+            </span>
+            <span class="ql-formats">
+              <select class="ql-color"></select>
+              <select class="ql-background"></select>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-list" value="ordered"></button>
+              <button class="ql-list" value="bullet"></button>
+              <select class="ql-align">
+                <option selected></option>
+                <option value="center"></option>
+                <option value="right"></option>
+                <option value="justify"></option>
+              </select>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-link"></button>
+              <button class="ql-image"></button>
+              <button class="ql-video"></button>
+            </span>
+          </div>
+          <div class="ql-container">
+            <div class="ql-editor">
+            </div>
+          </div>
+        </quill-editor>
+        <!-- <textarea [froalaEditor]="options" [(froalaModel)]="user.description" name="description" class="form-control" -->
+        <!--   #description="ngModel" [(ngModel)]="user.description"></textarea> -->
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Avatar</label>
+
+        <div
+          class="my-2 p-2 d-flex rounded flex-row align-items-center justify-content-around bg-secondary-subtle shadow">
+          <div *ngIf="identity && identity.image" class="bg-white p-1 rounded-3 mx-3">
+            <div class="bg-secondary-subtle p-1 rounded-3">
+              <img class="rounded-3 img-thumbnail shadow-lg" src="{{ url + 'user/avatar/' + identity.image }}" alt="">
+            </div>
+          </div>
+          <div class="p-2 bg-white rounded-2 shadow">
+            {{ filename || "No se ha cargado el archivo" }}
+          </div>
+          <div class="mx-3">
+            <a style="width: 48px; height: 48px;"
+              class="rounded-circle d-flex align-items-center justify-content-center btn btn-primary hover-shadow"
+              aria-label="file_upload" onclick="document.getElementById('getFile').click()">
+              <mat-icon>file_upload</mat-icon>
+            </a>
+            <input id="getFile" type="file" class="file-upload" style="display: none;"
+              onchange="console.log(event.target.files)" (change)="onFileSelected($event)" accept="image/*,.jpg,.png">
+          </div>
+        </div>
+      </div>
+
+      <input type="submit" class="btn btn-success mt-3" [disabled]="userEditForm.invalid">
+    </form>
+  </section>
+</main>

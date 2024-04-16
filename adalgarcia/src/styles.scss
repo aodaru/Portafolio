@@ -1,0 +1,179 @@
+@use '@angular/material' as mat;
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Meslo";
+  src: url("https://github.com/ryanoasis/nerd-fonts/raw/cf3561b1a51f70d5398eb49d603679b0f0c55d74/src/unpatched-fonts/Meslo/M/Regular/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf") format("truetype"),
+    url("https://github.com/ryanoasis/nerd-fonts/raw/cf3561b1a51f70d5398eb49d603679b0f0c55d74/src/unpatched-fonts/Meslo/M/Bold/Meslo%20LG%20M%20Bold%20for%20Powerline.ttf") format("truetype");
+  // font-variant-ligatures: none;
+}
+
+@font-face {
+  font-family: "Mononoki";
+  font-style: normal;
+  font-weight: 200;
+  src: url('https://github.com/ryanoasis/nerd-fonts/raw/cf3561b1a51f70d5398eb49d603679b0f0c55d74/src/unpatched-fonts/Mononoki/Regular/mononoki-Regular.ttf') format('truetype'),
+    url('https://github.com/ryanoasis/nerd-fonts/raw/cf3561b1a51f70d5398eb49d603679b0f0c55d74/src/unpatched-fonts/Mononoki/Bold/mononoki-Bold.ttf') format('truetype');
+  font-variant-ligatures: none;
+}
+
+
+
+@include mat.core();
+@import "bootstrap/scss/bootstrap";
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import "./gruvbox.scss";
+@import "../node_modules/quill/dist/quill.snow.css";
+
+// $font-default: Mononoki, Meslo, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-default: "Meslo";
+// $navbar-dark-toggler-icon-bg-gb: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$fg1}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+
+$enable-negative-margins: true;
+
+.bootstrapIcons {
+  font-family:'Bootstrap-icons';
+  font-size: 18px;
+}
+
+.font-site {
+  font-family: $font-default;
+}
+
+
+.main-nav {
+  background-color: rgba(var(--bs-secondary-bg-rgb), 0.5);
+}
+
+.bg-gb-filter {
+  backdrop-filter: blur(10px);
+}
+
+.imgCoffeeContainer {
+  margin: auto;
+  width: 75%;
+  position: relative;
+}
+
+.imgCoffee {
+  width: 100%;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.imgCoffeeBlock {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0 0 5px 5px #282828 inset;
+}
+
+
+.navbar {
+  // --bs-navbar-padding-x: 0;
+  // --bs-navbar-padding-y: 0.5rem;
+  // --bs-navbar-color: rgba(var(--bs-emphasis-color-rgb), 0.65);
+  // --bs-navbar-hover-color: rgba(var(--bs-emphasis-color-rgb), 0.8);
+  // --bs-navbar-disabled-color: rgba(var(--bs-emphasis-color-rgb), 0.3);
+  // --bs-navbar-active-color: rgba(var(--bs-emphasis-color-rgb), 1);
+  // --bs-navbar-brand-padding-y: 0.3125rem;
+  // --bs-navbar-brand-margin-end: 1rem;
+  // --bs-navbar-brand-font-size: 1.875rem;
+  // --bs-navbar-brand-color: rgba(var(--bs-emphasis-color-rgb), 1);
+  // --bs-navbar-brand-hover-color: rgba(var(--bs-emphasis-color-rgb), 1);
+  // --bs-navbar-nav-link-padding-x: 0.5rem;
+  // --bs-navbar-toggler-padding-y: 0.25rem;
+  // --bs-navbar-toggler-padding-x: 0.75rem;
+  // --bs-navbar-toggler-font-size: 1.25rem;
+  // --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  // --bs-navbar-toggler-border-color: rgba(var(--bs-primary-rgb), 0.15);
+  // --bs-navbar-toggler-border-radius: var(--bs-border-radius);
+  --bs-navbar-toggler-focus-width: 0.15rem;
+  // --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+  // position: relative;
+  // display: flex;
+  // flex-wrap: wrap;
+  // align-items: center;
+  // justify-content: space-between;
+  // padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+}
+
+.bi {
+  width: 1em;
+  height: 1em;
+  fill: currentcolor;
+}
+
+.switchButtonMode {
+  background-color: var(--bs-switch-mode-button);
+  color: var(--bs-dark-text-emphasis);
+  transition: all 500ms;
+}
+
+
+.cardHeader {
+  font-size: 20px;
+  margin-bottom: 0.1em;
+  text-decoration-line: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 4px;
+  text-decoration-color: var(--bs-gray);
+  transition: all 200ms;
+}
+
+.cardHeader:hover {
+  color: var(--bs-gray-200) !important;
+}
+
+.color-modes {
+  .dropdown-menu {
+    padding: .25rem;
+
+    li+li {
+      margin-top: .125rem;
+    }
+  }
+
+  .dropdown-item {
+    @include border-radius(.25rem);
+  }
+
+  .active {
+    font-weight: 600;
+
+    .bi {
+      display: block !important; // stylelint-disable-line declaration-no-important
+    }
+  }
+}
+
+
+.ql-container {
+  height: 8rem;
+  border-bottom-right-radius: var(--bs-border-radius);
+  border-bottom-left-radius: var(--bs-border-radius);
+  color: var(--bs-dark);
+}
+
+.ql-formats button:hover .ql-stroke {
+  color: var(--bs-primary) !important;
+  stroke: var(--bs-primary) !important;
+}
+
+.ql-snow.ql-toolbar button:hover .ql-fill {
+  fill: var(--bs-primary) !important;
+}
+
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke{
+  color: var(--bs-primary) !important;
+  stroke: var(--bs-primary) !important;
+}
+
+
+.card-article {
+  transition: all 300ms;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

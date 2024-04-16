@@ -1,0 +1,37 @@
+.card-text {
+  text-align: justify;
+  text-indent: 1.5em;
+}
+
+.bioCard {
+  padding-left: 4em;
+  text-indent: -4em;
+}
+
+.bioSpan {
+  font-weight: bold;
+  margin-right: 1em;
+}
+
+.list-aod {
+  list-style-type: "\F2C6    ";
+}
+
+.list-aod li::marker {
+  font-family: 'Bootstrap-icons';
+  color: var(--bs-primary);
+}
+
+.social-btn {
+  background: none;
+  border: none;
+  color: var(--bs-body-color);
+  margin: 0.3rem 0 0.3rem 0;
+  padding: 10px 20px 10px 20px;
+  transition: all 200ms;
+}
+
+.social-btn:hover {
+  background-color: rgba(var(--bs-success-rgb), 0.5);
+  border-radius: 0.375rem;
+}
