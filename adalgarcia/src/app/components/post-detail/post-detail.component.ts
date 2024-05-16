@@ -37,7 +37,6 @@ export class PostDetailComponent {
           next: (response) => {
             if (response.status == 'success') {
               this.post = response.post;
-              console.log(this.post);
               this.page_title = this.post.title;
             } else {
               this._router.navigate(['inicio']);

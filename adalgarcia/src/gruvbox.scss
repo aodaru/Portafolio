@@ -1,4 +1,4 @@
-[data-bs-theme=light] {
+[data-bs-theme="light"] {
   --bs-blue: #458588;
   --bs-indigo: #8f3f71;
   --bs-purple: #b16286;
@@ -31,7 +31,7 @@
   --bs-light: #fbf1c7;
   --bs-dark: #282828;
   --bs-primary-rgb: 215, 153, 33;
-  --bs-secondary-rgb: 108, 117, 125;
+  --bs-secondary-rgb: 214, 93, 14;
   --bs-success-rgb: 104, 157, 106;
   --bs-info-rgb: 69, 133, 136;
   --bs-warning-rgb: 214, 94, 14;
@@ -64,9 +64,16 @@
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
+  );
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
@@ -118,16 +125,14 @@
   --bs-form-invalid-border-color: #dc3545;
   --bs-switch-mode-button: var(--bs-purple);
 
-.btn-primary {
+  .btn-primary {
     --bs-btn-color: var(--bs-white);
     --bs-btn-bg: var(--bs-primary);
     --bs-btn-border-color: var(--bs-primary);
     --bs-btn-hover-color: var(--bs-white);
     --bs-btn-hover-bg: var(--bs-secondary);
     --bs-btn-hover-border-color: var(--bs-secondary);
-    --bs-btn-focus-shadow-rgb: 49,
-    132,
-    253;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: var(--bs-white);
     --bs-btn-active-bg: var(--bs-warning);
     --bs-btn-active-border-color: var(--bs-warning);
@@ -143,7 +148,7 @@
   }
 }
 
-[data-bs-theme=dark] {
+[data-bs-theme="dark"] {
   color-scheme: dark;
   --bs-primary: #d79921;
   --bs-secondary: #fabd2f;
@@ -189,7 +194,7 @@
   --bs-info-bg-subtle: #83a598;
   --bs-warning-bg-subtle: #fe8019;
   --bs-danger-bg-subtle: #fb4934;
-  --bs-light-bg-subtle: rgba(213, 196, 161, 0.50);
+  --bs-light-bg-subtle: rgba(213, 196, 161, 0.5);
   --bs-dark-bg-subtle: #3c3836;
   --bs-primary-border-subtle: #665c54;
   --bs-secondary-border-subtle: #7c6f64;
@@ -215,16 +220,14 @@
   --bs-form-invalid-border-color: #ea868f;
   --bs-switch-mode-button: var(--bs-light-text-emphasis);
 
-.btn-primary {
+  .btn-primary {
     --bs-btn-color: var(--bs-white);
     --bs-btn-bg: var(--bs-primary);
     --bs-btn-border-color: var(--bs-primary);
     --bs-btn-hover-color: var(--bs-white);
     --bs-btn-hover-bg: var(--bs-secondary);
     --bs-btn-hover-border-color: var(--bs-secondary);
-    --bs-btn-focus-shadow-rgb: 49,
-    132,
-    253;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: var(--bs-white);
     --bs-btn-active-bg: var(--bs-warning);
     --bs-btn-active-border-color: var(--bs-warning);

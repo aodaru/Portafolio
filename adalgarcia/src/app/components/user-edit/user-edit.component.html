@@ -44,49 +44,48 @@
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Biografia</label>
-        <quill-editor class="form-control border-0 p-0 bg-white" name="description" #description="ngModel" [(ngModel)]="user.description">
-          <div quill-editor-toolbar class="rounded-top">
-            <span class="ql-formats">
-              <button class="ql-bold" [title]="'Bold'"></button>
-              <button class="ql-italic"></button>
-              <button class="ql-underline"></button>
-              <button class="ql-strike"></button>
-            </span>
-            <span class="ql-formats">
-              <button class="ql-indent" value="-1"></button>
-              <button class="ql-indent" value="+1"></button>
-            </span>
-            <span class="ql-formats">
-              <button class="ql-blockquote"></button>
-              <button class="ql-code"></button>
-            </span>
-            <span class="ql-formats">
-              <select class="ql-color"></select>
-              <select class="ql-background"></select>
-            </span>
-            <span class="ql-formats">
-              <button class="ql-list" value="ordered"></button>
-              <button class="ql-list" value="bullet"></button>
-              <select class="ql-align">
-                <option selected></option>
-                <option value="center"></option>
-                <option value="right"></option>
-                <option value="justify"></option>
-              </select>
-            </span>
-            <span class="ql-formats">
-              <button class="ql-link"></button>
-              <button class="ql-image"></button>
-              <button class="ql-video"></button>
-            </span>
-          </div>
-          <div class="ql-container">
-            <div class="ql-editor">
-            </div>
-          </div>
-        </quill-editor>
-        <!-- <textarea [froalaEditor]="options" [(froalaModel)]="user.description" name="description" class="form-control" -->
-        <!--   #description="ngModel" [(ngModel)]="user.description"></textarea> -->
+        <textarea rows="10"  class="form-control border-0 p-0 bg-light text-dark" name="description" #description="ngModel" [(ngModel)]="user.description"></textarea>
+        <!-- <quill-editor class="form-control border-0 p-0 bg-white" name="description" #description="ngModel" [(ngModel)]="user.description"> -->
+        <!--   <div quill-editor-toolbar class="rounded-top"> -->
+        <!--     <span class="ql-formats"> -->
+        <!--       <button class="ql-bold" [title]="'Bold'"></button> -->
+        <!--       <button class="ql-italic"></button> -->
+        <!--       <button class="ql-underline"></button> -->
+        <!--       <button class="ql-strike"></button> -->
+        <!--     </span> -->
+        <!--     <span class="ql-formats"> -->
+        <!--       <button class="ql-indent" value="-1"></button> -->
+        <!--       <button class="ql-indent" value="+1"></button> -->
+        <!--     </span> -->
+        <!--     <span class="ql-formats"> -->
+        <!--       <button class="ql-blockquote"></button> -->
+        <!--       <button class="ql-code"></button> -->
+        <!--     </span> -->
+        <!--     <span class="ql-formats"> -->
+        <!--       <select class="ql-color"></select> -->
+        <!--       <select class="ql-background"></select> -->
+        <!--     </span> -->
+        <!--     <span class="ql-formats"> -->
+        <!--       <button class="ql-list" value="ordered"></button> -->
+        <!--       <button class="ql-list" value="bullet"></button> -->
+        <!--       <select class="ql-align"> -->
+        <!--         <option selected></option> -->
+        <!--         <option value="center"></option> -->
+        <!--         <option value="right"></option> -->
+        <!--         <option value="justify"></option> -->
+        <!--       </select> -->
+        <!--     </span> -->
+        <!--     <span class="ql-formats"> -->
+        <!--       <button class="ql-link"></button> -->
+        <!--       <button class="ql-image"></button> -->
+        <!--       <button class="ql-video"></button> -->
+        <!--     </span> -->
+        <!--   </div> -->
+        <!--   <div class="ql-container"> -->
+        <!--     <div class="ql-editor"> -->
+        <!--     </div> -->
+        <!--   </div> -->
+        <!-- </quill-editor> -->
       </div>
 
       <div class="mb-3">

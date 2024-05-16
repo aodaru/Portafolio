@@ -10,11 +10,7 @@ import { global } from '../../services/global';
   selector: 'app-post-edit',
   templateUrl: './post-edit.component.html',
   styleUrl: './post-edit.component.scss',
-  providers: [
-    UserService,
-    CategoryService,
-    PostService
-  ]
+  providers: [UserService, CategoryService, PostService],
 })
 export class PostEditComponent {
   public page_title: string;
@@ -32,14 +28,14 @@ export class PostEditComponent {
     private _categoryService: CategoryService,
     private _postService: PostService,
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
   ) {
-    this.page_title = "Editar entrada";
+    this.page_title = 'Editar entrada';
     this.url = global.url;
     this.status = '';
     this.filename = '';
     this.post = new Post(1, 1, 1, '', '', '', null);
-    this.message = "";
+    this.message = '';
   }
 
   ngOnInit() {
@@ -50,21 +46,20 @@ export class PostEditComponent {
   }
 
   onSubmit(form: any) {
-    console.log(this.post);
     this._postService.update(this.token, this.post, this.post.id).subscribe({
       next: (response) => {
         if (response.status == 'success') {
-          this.status = 'success'
+          this.status = 'success';
         }
       },
       error: (error) => {
-        this.status = "error";
-        if(<any>error.error.message == "Usuario no esta autentificado") {
-          this.message = "No ha iniciado sesion";
+        this.status = 'error';
+        if (<any>error.error.message == 'Usuario no esta autentificado') {
+          this.message = 'No ha iniciado sesion';
         }
         console.log(<any>error);
-      }
-    })
+      },
+    });
   }
 
   getCategories() {
@@ -76,34 +71,33 @@ export class PostEditComponent {
       },
       error: (error) => {
         console.log(<any>error);
-      }
-    })
+      },
+    });
   }
 
   getPost() {
-    this._route.params.subscribe(
-      params => {
-        let id = +params['id'];
-        this._postService.getPost(id).subscribe({
-          next: (response) => {
-            if (response.status == 'success') {
-              this.post.id = response.post.id;
-              this.post.user_id = response.post.user_id;
-              this.post.category_id = response.post.category_id;
-              this.post.title = response.post.title;
-              this.post.content = response.post.content;
-              this.post.image = response.post.image;
-              this.post.created_at = response.post.createdAt;
-              this.filename = this.post.image;
-            } else {
-              this._router.navigate(['inicio']);
-            }
-          },
-          error: (error) => {
-            console.log(<any>error);
+    this._route.params.subscribe((params) => {
+      let id = +params['id'];
+      this._postService.getPost(id).subscribe({
+        next: (response) => {
+          if (response.status == 'success') {
+            this.post.id = response.post.id;
+            this.post.user_id = response.post.user_id;
+            this.post.category_id = response.post.category_id;
+            this.post.title = response.post.title;
+            this.post.content = response.post.content;
+            this.post.image = response.post.image;
+            this.post.created_at = response.post.createdAt;
+            this.filename = this.post.image;
+          } else {
+            this._router.navigate(['inicio']);
           }
-        })
+        },
+        error: (error) => {
+          console.log(<any>error);
+        },
       });
+    });
   }
 
   onFileSelected(event: any) {
@@ -115,9 +109,9 @@ export class PostEditComponent {
           this.filename = response.image;
         },
         error: (error) => {
-          console.log(<any>error)
-        }
-      })
+          console.log(<any>error);
+        },
+      });
     }
   }
 }

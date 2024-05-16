@@ -8,10 +8,7 @@ import { global } from './services/global';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [
-    UserService,
-    CategoryService,
-  ]
+  providers: [UserService, CategoryService],
 })
 export class AppComponent implements OnInit, DoCheck {
   public title = 'adalgarcia';
@@ -31,9 +28,7 @@ export class AppComponent implements OnInit, DoCheck {
     this.currentYear = new Date().getFullYear();
   }
 
-
   ngOnInit(): void {
-    console.log('app-corriendo');
     this.getCategories();
   }
 
@@ -55,7 +50,7 @@ export class AppComponent implements OnInit, DoCheck {
       },
       error: (error) => {
         console.log(<any>error);
-      }
+      },
     });
   }
 

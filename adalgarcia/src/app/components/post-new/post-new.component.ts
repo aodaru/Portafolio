@@ -11,13 +11,8 @@ import { global } from '../../services/global';
   selector: 'app-post-new',
   templateUrl: './post-new.component.html',
   styleUrl: './post-new.component.scss',
-  providers: [
-    UserService,
-    CategoryService,
-    PostService,
-  ]
+  providers: [UserService, CategoryService, PostService],
 })
-
 export class PostNewComponent {
   public page_title: string;
   public identity: any;
@@ -32,9 +27,27 @@ export class PostNewComponent {
   public options: Object = {
     charCounterCount: true,
     toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-    toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-    toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-    toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
+    toolbarButtonsXS: [
+      'bold',
+      'italic',
+      'underline',
+      'paragraphFormat',
+      'alert',
+    ],
+    toolbarButtonsSM: [
+      'bold',
+      'italic',
+      'underline',
+      'paragraphFormat',
+      'alert',
+    ],
+    toolbarButtonsMD: [
+      'bold',
+      'italic',
+      'underline',
+      'paragraphFormat',
+      'alert',
+    ],
   };
 
   constructor(
@@ -42,16 +55,16 @@ export class PostNewComponent {
     private _router: Router,
     private _userService: UserService,
     private _categoryService: CategoryService,
-    private _postService: PostService
+    private _postService: PostService,
   ) {
-    this.page_title = "Crea Una Entrada"
+    this.page_title = 'Crea Una Entrada';
     this.identity = _userService.getIdentity();
     this.token = _userService.getToken();
-    this.filename = "";
+    this.filename = '';
     this.url = global.url;
     this.post = new Post(1, this.identity.sub, 1, '', '', '', null);
-    this.status = "";
-    this.message = "";
+    this.status = '';
+    this.message = '';
   }
 
   ngOnInit() {
@@ -61,21 +74,21 @@ export class PostNewComponent {
   onSubmit(form: any) {
     this._postService.create(this.token, this.post).subscribe({
       next: (response) => {
-        if (response.status == "success") {
+        if (response.status == 'success') {
           this.status = response.status;
           form.reset();
-          this.filename = ''
+          this.filename = '';
         } else {
-          this.status = "error";
+          this.status = 'error';
         }
       },
       error: (error) => {
-        this.status = "error";
-        if(<any>error.error.message == "Usuario no esta autentificado") {
-          this.message = "No ha iniciado sesion";
+        this.status = 'error';
+        if (<any>error.error.message == 'Usuario no esta autentificado') {
+          this.message = 'No ha iniciado sesion';
         }
         console.log(<any>error);
-      }
+      },
     });
   }
 
@@ -83,14 +96,13 @@ export class PostNewComponent {
     this._categoryService.getCategories().subscribe({
       next: (response) => {
         if (response.status == 'success') {
-          console.log(response)
           this.categories = response.categories;
         }
       },
       error: (error) => {
         console.log(<any>error);
-      }
-    })
+      },
+    });
   }
 
   onFileSelected(event: any) {
@@ -98,14 +110,13 @@ export class PostNewComponent {
     if (file) {
       this._postService.uploadImage(this.token, file).subscribe({
         next: (response) => {
-          console.log(response);
           this.post.image = response.image;
           this.filename = response.image;
         },
         error: (error) => {
-          console.log(<any>error)
-        }
-      })
+          console.log(<any>error);
+        },
+      });
     }
   }
 }

@@ -3,29 +3,26 @@ import { Router, CanActivateFn } from '@angular/router';
 import { UserService } from './user.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class IdentityGuardsService {
-
   constructor(
     private _router: Router,
-    private _userService: UserService
-  ) { }
+    private _userService: UserService,
+  ) {}
 
   canActivate(): boolean {
     let identity = this._userService.getIdentity();
     const now = new Date();
     if (identity) {
       const expTimestamp = identity.exp;
-      const timeDifference = new Date(expTimestamp * 1000).getTime() - now.getTime();
+      const timeDifference =
+        new Date(expTimestamp * 1000).getTime() - now.getTime();
       const timeRemaining = Math.floor(timeDifference / 3600);
-      console.log(new Date(identity.iat * 1000));
-      console.log(new Date(expTimestamp * 1000));
-      console.log(timeRemaining);
       if (timeRemaining <= 0) {
-        this.logout()
+        this.logout();
         return false;
-      }else{
+      } else {
         return true;
       }
     } else {
@@ -35,7 +32,6 @@ export class IdentityGuardsService {
   }
 
   logout() {
-
     localStorage.removeItem('identity');
     localStorage.removeItem('token');
 
@@ -43,4 +39,3 @@ export class IdentityGuardsService {
     this._router.navigate(['/']);
   }
 }
-
