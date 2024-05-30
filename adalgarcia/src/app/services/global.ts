@@ -1,3 +1,3 @@
 export let global = {
-  url: 'http://api-adalgarcia.com.devel/api/'
-}
+  url: 'https://api.adalgarcia.com/api/',
+};

@@ -1,9 +1,10 @@
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 /* You can add global styles to this file, and also import other style files */
 @font-face {
   font-family: "Meslo";
-  src: url("https://github.com/ryanoasis/nerd-fonts/raw/cf3561b1a51f70d5398eb49d603679b0f0c55d74/src/unpatched-fonts/Meslo/M/Regular/Meslo%20LG%20M%20Regular%20for%20Powerline.ttf") format("truetype"),
-    url("https://github.com/ryanoasis/nerd-fonts/raw/cf3561b1a51f70d5398eb49d603679b0f0c55d74/src/unpatched-fonts/Meslo/M/Bold/Meslo%20LG%20M%20Bold%20for%20Powerline.ttf") format("truetype");
+  src:
+    url("assets/fonts/MesloLG-M-Regular.ttf") format("truetype"),
+    url("assets/fonts/MesloLG-M-Bold.ttf") format("truetype");
   // font-variant-ligatures: none;
 }
 
@@ -11,12 +12,11 @@
   font-family: "Mononoki";
   font-style: normal;
   font-weight: 200;
-  src: url('https://github.com/ryanoasis/nerd-fonts/raw/cf3561b1a51f70d5398eb49d603679b0f0c55d74/src/unpatched-fonts/Mononoki/Regular/mononoki-Regular.ttf') format('truetype'),
-    url('https://github.com/ryanoasis/nerd-fonts/raw/cf3561b1a51f70d5398eb49d603679b0f0c55d74/src/unpatched-fonts/Mononoki/Bold/mononoki-Bold.ttf') format('truetype');
+  src:
+    url("assets/fonts/Mononoki-Regular.ttf") format("truetype"),
+    url("assets/fonts/Mononoki-Bold.ttf") format("truetype");
   font-variant-ligatures: none;
 }
-
-
 
 @include mat.core();
 @import "bootstrap/scss/bootstrap";
@@ -32,14 +32,13 @@ $font-default: "Meslo";
 $enable-negative-margins: true;
 
 .bootstrapIcons {
-  font-family:'Bootstrap-icons';
+  font-family: "Bootstrap-icons";
   font-size: 18px;
 }
 
 .font-site {
   font-family: $font-default;
 }
-
 
 .main-nav {
   background-color: rgba(var(--bs-secondary-bg-rgb), 0.5);
@@ -68,7 +67,6 @@ $enable-negative-margins: true;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0 0 5px 5px #282828 inset;
 }
-
 
 .navbar {
   // --bs-navbar-padding-x: 0;
@@ -111,7 +109,6 @@ $enable-negative-margins: true;
   transition: all 500ms;
 }
 
-
 .cardHeader {
   font-size: 20px;
   margin-bottom: 0.1em;
@@ -128,15 +125,15 @@ $enable-negative-margins: true;
 
 .color-modes {
   .dropdown-menu {
-    padding: .25rem;
+    padding: 0.25rem;
 
-    li+li {
-      margin-top: .125rem;
+    li + li {
+      margin-top: 0.125rem;
     }
   }
 
   .dropdown-item {
-    @include border-radius(.25rem);
+    @include border-radius(0.25rem);
   }
 
   .active {
@@ -147,7 +144,6 @@ $enable-negative-margins: true;
     }
   }
 }
-
 
 .ql-container {
   height: 8rem;
@@ -165,11 +161,16 @@ $enable-negative-margins: true;
   fill: var(--bs-primary) !important;
 }
 
-.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke{
+.ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke {
   color: var(--bs-primary) !important;
   stroke: var(--bs-primary) !important;
 }
 
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
